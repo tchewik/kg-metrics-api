@@ -1,0 +1,20 @@
+services:
+  metrics-api:
+    image: tchewik/metrics-api:1.0.0
+    container_name: metrics-api
+    ports:
+      - "8125:8000"
+    environment:
+      METRICS_API_JOB_TIMEOUT_SEC: "7200"
+      NVIDIA_VISIBLE_DEVICES: "0"
+      CUDA_VISIBLE_DEVICES: "0"
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      HF_DATASETS_OFFLINE: "1"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]

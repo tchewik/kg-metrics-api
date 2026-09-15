@@ -1,0 +1,11 @@
+.git
+.gitignore
+.github
+__pycache__
+*.py[cod]
+*.log
+*.zip
+.env
+.venv
+venv
+remote_host
